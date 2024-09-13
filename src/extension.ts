@@ -22,8 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
-    // Register the CodeActionProvider
-    vscode.languages.registerCodeActionsProvider('typescript', new SurroundWithFrame(), {
+    vscode.languages.registerCodeActionsProvider('javascript', new SurroundWithFrame(), {
         providedCodeActionKinds: SurroundWithFrame.providedCodeActionKinds
     });
 }
@@ -37,9 +36,9 @@ class SurroundWithFrame implements vscode.CodeActionProvider {
         document: vscode.TextDocument,
         range: vscode.Range | vscode.Selection
     ): vscode.CodeAction[] | undefined {
+        console.log('Code Action Provider called');  // Debugging log
         const surroundAction = this.createSurroundWithFrameAction(document, range);
-
-        return surroundAction ? [surroundAction] : undefined;
+        return surroundAction ? [surroundAction] : [];
     }
 
     private createSurroundWithFrameAction(
