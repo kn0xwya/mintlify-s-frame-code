@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand('surroundWithFrame.surround', () => {
+        vscode.commands.registerCommand('mintlify-s-frame-code.surround', () => {
             const editor = vscode.window.activeTextEditor;
 
             if (editor) {
@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     // Register the CodeActionProvider
-    vscode.languages.registerCodeActionsProvider('*', new SurroundWithFrame(), {
+    vscode.languages.registerCodeActionsProvider('typescript', new SurroundWithFrame(), {
         providedCodeActionKinds: SurroundWithFrame.providedCodeActionKinds
     });
 }
@@ -56,7 +56,7 @@ class SurroundWithFrame implements vscode.CodeActionProvider {
             vscode.CodeActionKind.QuickFix
         );
         surroundFix.command = {
-            command: 'surroundWithFrame.surround',
+            command: 'mintlify-s-frame-code.surround',
             title: 'Surround with <Frame>...</Frame>',
             arguments: [range]
         };
