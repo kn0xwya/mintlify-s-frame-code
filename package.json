@@ -16,6 +16,10 @@
       {
         "command": "mintlify-s-frame-code.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "surroundWithFrame.surround",
+        "title": "Surround with <Frame>"
       }
     ]
   },
