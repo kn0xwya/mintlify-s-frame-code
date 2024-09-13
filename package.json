@@ -9,17 +9,12 @@
   "activationEvents": [
     "onCommand:mintlify-s-frame-code.surround"
   ],
-  "main": "./out/extension.js",
+  "main": "src/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "mintlify-s-frame-code.surround",
         "title": "Surround with <Frame>"
-      }
-    ],
-    "languages": [
-      {
-        "id": "typescript"
       }
     ]
   },
